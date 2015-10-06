@@ -1,0 +1,28 @@
+.tile {
+  width: 25px;
+  height: 25px;
+  background-color: #ccc;
+  border-style: outset;
+  float: left;
+  text-align: center;
+  line-height: 29px;
+  color: transparent;
+}
+
+.row {
+  width: 320px;
+}
+
+.explored {
+  border-style: inset;
+  color: #000;
+}
+
+.bombed {
+  border-style: inset;
+  color: #000;
+}
+
+.flagged {
+  color: #000;
+}
