@@ -20,7 +20,7 @@
 
 .bombed {
   border-style: inset;
-  color: #000;
+  color: red;
 }
 
 .flagged {

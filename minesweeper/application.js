@@ -10,7 +10,7 @@
     determineChar: function () {
       var tile = this.props.board.grid[this.props.pos[0]][this.props.pos[1]];
 
-      if (tile.bombed) {
+      if (tile.bombed && tile.explored) {
         return "☀";
       } else if (tile.explored) {
         var bombCount = tile.adjacentBombCount();
@@ -91,13 +91,21 @@
     gameOverAlert: function () {
       if (this.state.gameWon) {
         alert("Congratulations!");
+        this.restartGame();
       } else if (this.state.gameOver) {
         alert("You lost!");
+        this.restartGame();
       }
+    },
+
+    restartGame: function () {
+      React.unmountComponentAtNode(document.getElementById("main"));
+      React.render(<Game />, document.getElementById("main"));
     },
 
     updateGame: function (pos, isFlag) {
       if (isFlag) {
+        debugger;
         this.state.board.grid[pos[0]][pos[1]].toggleFlag();
       } else {
         this.state.board.grid[pos[0]][pos[1]].explore();
